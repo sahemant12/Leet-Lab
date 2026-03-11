@@ -1,4 +1,4 @@
-import prisma from "../libs/db";
+import prisma from "../libs/db.js";
 
 export const getAllSubmission = async (req, res) => {
   try {

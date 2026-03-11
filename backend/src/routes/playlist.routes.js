@@ -1,5 +1,6 @@
 import express from "express";
-import {getPlayAllListDetails, getPlayListDetails, createPlayList, addProblemToPlaylist, deletePlayList, deletePlayList} from "../controllers/playlist.controller.js";
+import {getPlayAllListDetails, getPlayListDetails, createPlayList, addProblemToPlaylist, deletePlayList, removeProblemFromPlaylist} from "../controllers/playlist.controller.js";
+import { authMiddleware } from "../middleware/auth.middleware.js";
 
 const playlistRoutes = express.Router();
 
@@ -14,6 +15,6 @@ playlistRoutes.post("/:playlistId/add-problem", authMiddleware, addProblemToPlay
 
 playlistRoutes.delete("/:playlistId", authMiddleware, deletePlayList);
 
-playlistRoutes.delete("/:playlistId/remove-problem", authMiddleware, deletePlayList);
+playlistRoutes.delete("/:playlistId/remove-problem", authMiddleware, removeProblemFromPlaylist);
 
 export default playlistRoutes;
