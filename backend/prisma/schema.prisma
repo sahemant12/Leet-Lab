@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String?
+  email     String   @unique
+  image     String?
+  role      UserRole @default(USER)
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  problems      Problem[]
+  // submission    Submission[]
+  // problemSolved ProblemSolved[]
+  // playlists Playlist[]
+}
+
+model Problem {
+  id          String     @id @default(uuid())
+  title       String
+  description String
+  difficulty  Difficulty
+  tags        String[] // ["tag1", "tag2", "tag3"]
+  userId      String // The ID of the User (admin) who created this problem.
+  examples    Json
+  constraints String
+  hints       String?
+  editorial   String?
+
+  testcases          Json // 
+  codeSnippets       Json
+  referenceSolutions Json
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  //  Relationship
+  user  User   @relation(fields: [userId], references: [id], onDelete: Cascade) 
+  // fields: [userId] -> Which field in Problem stores the foreign key?
+  // references: [id]: Which field in User model does it reference?
+
+
+  // submission Submission[]
+  // solvedBy   ProblemSolved[]
+  // problemsPlaylists ProblemInPlaylist[]
+ 
+}
