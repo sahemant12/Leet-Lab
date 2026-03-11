@@ -4,6 +4,8 @@ import {
   getLanguage,
 } from "../libs/judge0.libs.js";
 
+import prisma from "../libs/db.js";
+
 export const executeCode = async (req, res) => {
   try {
     const { problemId, language_id, source_code, stdin, expected_outputs } =
