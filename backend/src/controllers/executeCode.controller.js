@@ -12,10 +12,10 @@ export const executeCode = async (req, res) =>{
 
         // prepare submissions for each test cases:
         const submissions = stdin.map((input)=>({
-            source_code: solutionCode,
-            language_id: languageId,
+            source_code: source_code,
+            language_id: language_id,
             stdin: input,
-            expected_output: output,            
+            expected_output: expected_outputs,            
         }));
 
     } catch (error) {
