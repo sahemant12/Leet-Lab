@@ -23,6 +23,7 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/problems", problemRoutes);
 app.use("/api/v1/execute-code", executeRoutes);
 app.use("/api/v1/submission", submissionRoutes);
+app.use("/api/v1/playlist", playlistRoutes);
 
 
 app.listen(PORT, ()=>{
