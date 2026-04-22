@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const register = async (req, res) => {
+    // add register
     const {name, email, password} = req.body;
     try {
         const existingUser = await prisma.user.findUnique({
