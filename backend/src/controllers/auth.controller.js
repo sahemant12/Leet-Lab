@@ -114,6 +114,7 @@ export const logIn = async (req, res) => {
 };
 
 export const logOut = async (req, res) => {
+// add logOut
     try {
         res.clearCookie("jwt", {
             httpOnly:true,
