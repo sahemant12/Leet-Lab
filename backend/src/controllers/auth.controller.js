@@ -135,6 +135,7 @@ export const logOut = async (req, res) => {
 };
 
 export const getMe = async (req, res) => {
+    // getMeadd
     try {
         res.status(200).json({
             success:true,
