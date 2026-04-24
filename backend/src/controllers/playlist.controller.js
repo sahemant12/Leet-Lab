@@ -1,6 +1,7 @@
 import prisma from "../libs/db.js";
 
 export const createPlayList = async (req, res) => {
+  // createPlayList
   try {
     const { name, description } = req.body;
     const userId = req.user.id;
